@@ -1,5 +1,6 @@
 # Curs 4 - memory savers
 import copy
+import csv
 
 players = [{
     "first_name": "John",
@@ -44,5 +45,19 @@ even_square_numbers = [ x ** 2 for x in first_list if x % 2 == 0 and x > 0]
 print(even_square_numbers)
 
 
-with open("hello.txt", "w") as file:
-    file.write("Hello World!")
+#with open("hello.txt", "r") as file:
+ #   file.write("Hello World!")
+
+new_cars = [['Dacia', 'Logan', 2005, 75], ['Renault', 'Clio', 2005, 75]]
+
+with open('data.csv', 'a') as csv_file:
+    csv_writer = csv.writer(csv_file, delimiter=',')
+
+    for new_car in new_cars:
+        csv_writer.writerow(new_car)
+
+with open('data.csv', 'r') as csv_file:
+    rows = csv.reader(csv_file, delimiter = ',')
+
+    for row in rows:
+        print(row)
