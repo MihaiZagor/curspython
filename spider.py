@@ -7,6 +7,7 @@ page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 stage_table = soup.find(class_ = 'clasament_general white-shadow')
 team_rows = stage_table.find_all(class_ = 'echipa_row')
+print(team_rows)
 teams = []
 for team in team_rows:
     team_cell = team.find('a')
